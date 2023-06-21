@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+
+<body>
+    <h1>BelajarJavaScript</h1>
+    <script>
+        let data = {
+            nama: "Nanda",
+            alamat: "jakarta",
+            jenkel: "lakilaki",
+            jurusan: "agama"
+        }
+        let url = "https://hanifproject-23f1d-default-rtdb.firebaseio.com/siswa/-NVD3e3wgubmG767EQT6.json"
+
+        const myFetch = async () => {
+            try {
+                let response = await fetch(url, {
+                    method: "PATCH",
+                    body: JSON.stringify({nama : "abdullah"})
+                })
+                alert("Edit berhasil dikirim");
+                if (!response.ok) {
+                    throw new Error(response.status);
+                }
+            }
+            catch (error) {
+                console.log(`EROR WOY!: "${error}" `);
+            }
+        }
+        myFetch();
+    </script>
+</body>
+
+</html>
